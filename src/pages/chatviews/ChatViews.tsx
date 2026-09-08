@@ -1,10 +1,10 @@
 import styles from "./ChatViews.module.css"
 import { PiChatTextFill } from "react-icons/pi"
-import { useState, type ReactElement, type ReactNode } from "react"
+import { LuCircleUser } from "react-icons/lu"
+import { useState } from "react"
 
 export function ChatView() {
     const [actived, setactived] = useState<boolean>(false)
-    const [animationEnded, setanimationEnded] = useState<boolean>(false)
     return (
         <div className={styles.container}>
             <div
@@ -12,21 +12,37 @@ export function ChatView() {
                 onMouseEnter={() => setactived(true)}
                 onMouseLeave={() => setactived(false)}
             >
-                <div className={`${styles.row} ${styles.innerBox}`}>
-                    <PiChatTextFill
-                        color="black"
-                        size={30}
-                        cursor={"pointer"}
-                    ></PiChatTextFill>
-                    <h5
-                        className={
-                            actived
-                                ? `${styles.para}`
-                                : `${styles.para} ${styles.hidden}`
-                        }
+                <div className={`${styles.column} ${styles.innerBox}`}>
+                    <div
+                        className={`${styles.row} ${styles.icon} ${styles.chaticon}`}
                     >
-                        Chats
-                    </h5>
+                        <PiChatTextFill
+                            color="black"
+                            size={30}
+                        ></PiChatTextFill>
+                        <h5
+                            className={
+                                actived ? `${styles.para}` : `${styles.hidden}`
+                            }
+                        >
+                            Chats
+                        </h5>
+                    </div>
+                    <div
+                        className={`${styles.row} ${styles.icon} ${styles.user}`}
+                    >
+                        <LuCircleUser
+                            color="black"
+                            size={30}
+                        ></LuCircleUser>
+                        <h5
+                            className={
+                                actived ? `${styles.para}` : `${styles.hidden}`
+                            }
+                        >
+                            User
+                        </h5>
+                    </div>
                 </div>
             </div>
             <div className={styles.chat}>
