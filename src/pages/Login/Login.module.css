@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-wrap: wrap;
+    container-type: inline-size;
+    container-name: inputContainer;
+}
+
+.left {
+    order: 1;
+    flex: 50;
+    background-color: rgb(26, 56, 56);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease-in-out;
+}
+
+.right {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 50;
+    background-color: black;
+    transition: 1s ease-in-out;
+}
+
+.card {
+    position: relative;
+    background-color: white;
+    padding: 10%;
+    border-radius: 10%;
+    rotate: 30deg;
+    transform: translateY(10px) translateX(10px);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+    border: 2px solid transparent;
+    transition:
+        transform 0.5s ease-in,
+        background-color 2s ease-in,
+        border-color 0.5s ease-in,
+        color 0.5s ease-in,
+        box-shadow 0.5s ease-in;
+}
+
+.card:hover {
+    transform: translateY(-10px) translateX(-10px);
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.186);
+}
+
+.card:hover:active {
+    transform: translateY(10px) translateX(10px);
+    background-color: rgb(0, 0, 0);
+    border-color: skyblue;
+    box-shadow: none;
+    color: skyblue;
+}
+
+.responsive_form {
+    display: none;
+}
+p,
+.links {
+    color: white;
+}
+.links {
+    margin: 0px 0px 30px 0px;
+}
+.links:hover {
+    color: rgb(97, 230, 230);
+    transition: 0.5s ease-in-out;
+}
+.submit {
+    background-color: rgb(97, 230, 230);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 30px 0px 30px 0px;
+    width: 20%;
+}
+b {
+    color: red;
+}
+
+@container inputContainer (max-width: 1023px) {
+    .right {
+        display: none;
+    }
+    .left {
+        flex: 1 1 100%;
+        flex-direction: column;
+    }
+    .responsive_form {
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        padding: 30px 30px 0px 30px;
+        border-radius: 10px;
+        gap: 10px;
+        align-items: center;
+        height: fit-content;
+    }
+    .card {
+        bottom: -75px;
+    }
+    .submit {
+        background-color: rgb(97, 230, 230);
+        padding: 10px;
+        border-radius: 10px;
+        width: 50%;
+    }
+}
